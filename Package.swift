@@ -5,24 +5,21 @@ import PackageDescription
 
 let package = Package(
     name: "opencv-binary-spm-ios",
+    platforms: [
+        .iOS(.v9)
+    ],
     products: [
-        // Products define the executables and libraries a package produces, and make them visible to other packages.
         .library(
             name: "opencv-binary-spm-ios",
-            targets: ["opencv-binary-spm-ios"]),
+            targets: ["opencv2"]),
     ],
     dependencies: [
-        // Dependencies declare other packages that this package depends on.
-        // .package(url: /* package url */, from: "1.0.0"),
     ],
     targets: [
-        // Targets are the basic building blocks of a package. A target can define a module or a test suite.
-        // Targets can depend on other targets in this package, and on products in packages this package depends on.
-        .target(
-            name: "opencv-binary-spm-ios",
-            dependencies: []),
-        .testTarget(
-            name: "opencv-binary-spm-iosTests",
-            dependencies: ["opencv-binary-spm-ios"]),
+        .binaryTarget(
+            name: "opencv2",
+            url: "https://github.com/inexcii/opencv-binary-spm-ios/releases/download/4.6.0/opencv2.xcframework.zip",
+            checksum: "fce3339f7ee030df5f0f10bdbf446cb3bef565cc3fa7664d74a53f661c43399c"
+        )
     ]
 )
